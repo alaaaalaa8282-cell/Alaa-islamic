@@ -1,0 +1,88 @@
+name: muhammad_abdulazeem_islamic
+description: تطبيق محمد عبد العظيم الطويل الإسلامي
+publish_to: "none"
+version: 1.0.0+1
+
+environment:
+  sdk: '>=3.0.0 <4.0.0'
+
+dependencies:
+  cached_network_image: ^3.3.1
+  cupertino_icons: ^1.0.6
+  dartz: ^0.10.1
+  dio: ^5.4.0
+  equatable: ^2.0.5
+  flutter:
+    sdk: flutter
+  flutter_bloc: ^9.1.1
+  flutter_local_notifications: ^18.0.1
+  flutter_screenutil: ^5.9.0
+  flutter_staggered_grid_view: ^0.7.0
+  flutter_svg: ^2.0.10
+  geocoding: ^3.0.0
+  geolocator: ^12.0.0
+  google_fonts: ^6.2.1
+  hijri_calendar: ^1.0.7+7
+  hydrated_bloc: ^10.1.1
+  intl: ^0.19.0
+  lottie: ^3.1.2
+  motion_sensors: ^0.1.0
+  muslim_data_flutter: ^1.5.0
+  path_provider: ^2.1.2
+  permission_handler: ^11.3.1
+  qcf_quran: 0.0.5
+  quran: ^1.4.1
+  rxdart: ^0.28.0
+  share_plus: ^10.0.2
+  shared_preferences: ^2.2.3
+  sqflite: ^2.3.2
+  url_launcher: ^6.2.5
+  just_audio: ^0.9.40
+  audio_session: ^0.1.21
+  connectivity_plus: ^6.0.5
+  video_player: ^2.8.3
+  timezone: ^0.9.4
+  flutter_timezone: ^2.0.0
+  volume_controller: ^2.1.1
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^4.0.0
+
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/latest.db
+    - assets/azkar_ar.json
+    - assets/images/core/json/
+    - assets/images/core/svg/
+    - assets/images/error/lottie_json/
+    - assets/images/navigation_icon/svg/
+    - assets/images/home_icon/svg/
+    - assets/images/home_icon/lottie_json/
+    - assets/images/collection_icon/svg/
+    - assets/images/qiblat_icon/svg/
+    - assets/images/praying_time/svg/
+    - assets/images/setting_icon/svg/
+    - assets/images/permission/lottie_json/
+    - assets/images/tasbih_icon/svg/
+    - assets/images/dua_icon/svg/
+    - assets/images/quran_icon/svg/
+    - assets/images/image_of_the_day/
+    - assets/sound/
+    - assets/sound/adhan/
+    - assets/father_photo.jpg
+
+  fonts:
+    - family: Uthman
+      fonts:
+        - asset: assets/fonts/Uthman-Taha-Naskh-Regular.otf
+        - asset: assets/fonts/Uthman-Taha-Naskh-Bold.otf
+          weight: 700
+    - family: Jameel
+      fonts:
+        - asset: assets/fonts/jameel.ttf
+    - family: "arsura"
+      fonts:
+        - asset: assets/fonts/arsura.ttf
