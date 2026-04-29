@@ -1,89 +1,35 @@
-name: muhammad_abdulazeem_islamic
-description: تطبيق محمد عبد العظيم الطويل الإسلامي
-publish_to: "none"
-version: 1.0.0+1
+name: Build APK
 
-environment:
-  sdk: '>=3.8.0 <4.0.0'
+on:
+  push:
+    branches: [ main, master ]
+  workflow_dispatch:
 
-dependencies:
-  cached_network_image: ^3.1.0
-  cupertino_icons: ^1.0.2
-  dartz: ^0.10.0
-  dio: ^5.1.2
-  equatable: ^2.0.3
-  flutter:
-    sdk: flutter
-  flutter_bloc: ^9.1.1
-  flutter_local_notifications: ^20.1.0
-  flutter_timezone: ^2.0.0
-  flutter_screenutil: ^5.0.0+2
-  flutter_staggered_grid_view: ^0.7.0
-  flutter_svg: ^2.0.5
-  geocoding: ^4.0.0
-  geolocator: ^14.0.2
-  google_fonts: ^8.0.2
-  hijri_calendar: ^1.0.7+7
-  hydrated_bloc: ^10.1.1
-  intl: ^0.20.2
-  lottie: ^3.3.2
-  motion_sensors: ^0.1.0
-  muslim_data_flutter: ^1.1.2
-  path_provider: ^2.0.2
-  permission_handler: ^12.0.1
-  qcf_quran: 0.0.5
-  quran: ^1.4.1
-  rxdart: ^0.28.0
-  share_plus: ^12.0.1
-  shared_preferences: ^2.0.6
-  sqflite: ^2.0.0+3
-  url_launcher: ^6.0.9
-  just_audio: ^0.9.40
-  connectivity_plus: ^6.1.5
-  audio_session: ^0.1.25
-  video_player: ^2.10.0
-  timezone: ^0.9.4
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
 
-dev_dependencies:
-  flutter_test:
-    sdk: flutter
+    steps:
+      - uses: actions/checkout@v4
 
-dependency_overrides:
-  path_provider_foundation: 2.5.1
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
 
-flutter:
-  uses-material-design: true
-  assets:
-    - assets/latest.db
-    - assets/azkar_ar.json
-    - assets/father_photo.jpg
-    - assets/images/core/json/
-    - assets/images/core/svg/
-    - assets/images/error/lottie_json/
-    - assets/images/navigation_icon/svg/
-    - assets/images/home_icon/svg/
-    - assets/images/home_icon/lottie_json/
-    - assets/images/collection_icon/svg/
-    - assets/images/qiblat_icon/svg/
-    - assets/images/praying_time/svg/
-    - assets/images/setting_icon/svg/
-    - assets/images/permission/lottie_json/
-    - assets/images/tasbih_icon/svg/
-    - assets/images/dua_icon/svg/
-    - assets/images/quran_icon/svg/
-    - assets/images/image_of_the_day/
-    - assets/sound/
-    - assets/sound/adhan/
+      - uses: subosito/flutter-action@v2
+        with:
+          flutter-version: '3.32.8'
+          channel: stable
+          cache: false
 
-  fonts:
-    - family: Uthman
-      fonts:
-        - asset: assets/fonts/Uthman-Taha-Naskh-Regular.otf
-        - asset: assets/fonts/Uthman-Taha-Naskh-Bold.otf
-          weight: 700
-    - family: Jameel
-      fonts:
-        - asset: assets/fonts/jameel.ttf
-    - family: "arsura"
-      fonts:
-        - asset: assets/fonts/arsura.ttf
+      - run: flutter pub get
+
+      - run: flutter build apk --debug --no-tree-shake-icons
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: app-debug
+          path: build/app/outputs/flutter-apk/app-debug.apk
+          retention-days: 30
