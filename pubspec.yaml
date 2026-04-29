@@ -53,7 +53,8 @@ dependency_overrides:
 
 flutter:
   uses-material-design: true
-- assets/
+assets:
+    - assets/
     - assets/fonts/
     - sound/
     - sound/adhan/
