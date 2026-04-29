@@ -49,7 +49,7 @@ dev_dependencies:
     sdk: flutter
 
 dependency_overrides:
-  path_provider_foundation: 2.5.1
+  path_provider_foundation: 2.3.2
 
 flutter:
   uses-material-design: true
