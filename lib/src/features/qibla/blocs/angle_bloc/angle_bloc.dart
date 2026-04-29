@@ -1,6 +1,6 @@
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
-import 'package:motion_sensors/motion_sensors.dart';
+import 'package:flutter_compass/flutter_compass.dart';
 import 'package:vector_math/vector_math.dart' show radians;
 
 import '../../controller/qibla_controller.dart';
@@ -14,8 +14,7 @@ class AngleBloc extends Bloc<AngleEvent, AngleState> {
   AngleBloc(this.qiblaDirection) : super(AngleInitial(0, 0)) {
     on<AngleEvent>((event, emit) async {
       if (event is SetMagnetometerValue) {
-        double angle = getCompassAngle(event.events);
-
+        double angle = event.events.first.x ?? 0;
         double rad = radians(angle);
 
         /// further prevent noise which is less than 0.5 deg(0.008 rad)
