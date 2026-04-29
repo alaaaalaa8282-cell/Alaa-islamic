@@ -82,7 +82,7 @@ Future<Either<LocalFailure, Position>> getCurrentPosition() async {
   }
 
   final Position position = await Geolocator.getCurrentPosition(
-    locationSettings: LocationSettings(
+    locationSettings: const LocationSettings(
       accuracy: LocationAccuracy.medium,
       distanceFilter: 100,
     ),
