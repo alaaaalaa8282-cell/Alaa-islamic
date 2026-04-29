@@ -19,11 +19,10 @@ jobs:
           java-version: '17'
 
       - uses: subosito/flutter-action@v2
-        with:
-          flutter-version: 'any'
-          
-          cache: false
-
+  with:
+    flutter-version: 'any'
+    channel: stable
+    cache: false
       - run: flutter pub get
 
       - run: flutter build apk --debug --no-tree-shake-icons
