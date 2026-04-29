@@ -2,8 +2,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.aboalaa.islamic.muhammad">
     <uses-permission android:name="android.permission.INTERNET"/>
-    <receiver
-        android:name="com.dexterous.flutterlocalnotifications.ScheduledNotificationBootReceiver"
-        android:exported="true"
-        tools:replace="android:exported"/>
+    <application>
+        <receiver
+            android:name="com.dexterous.flutterlocalnotifications.ScheduledNotificationBootReceiver"
+            android:exported="true"
+            tools:replace="android:exported"/>
+    </application>
 </manifest>
