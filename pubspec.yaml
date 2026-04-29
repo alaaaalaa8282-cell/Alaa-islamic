@@ -42,7 +42,7 @@ dependencies:
   connectivity_plus: ^6.1.5
   audio_session: ^0.1.25
   video_player: ^2.10.0
-  timezone: ^0.9.4
+  timezone: ^0.10.1
 
 dev_dependencies:
   flutter_test:
