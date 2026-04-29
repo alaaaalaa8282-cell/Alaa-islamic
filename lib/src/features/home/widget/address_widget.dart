@@ -4,7 +4,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../core/util/bloc/location/location_bloc.dart';
 import '../../../core/util/controller/date_controller.dart';
-import 'address_widget.dart';
+
+import '../../../core/util/location_display.dart';
 
 class AddressWidget extends StatelessWidget {
   const AddressWidget({super.key});
