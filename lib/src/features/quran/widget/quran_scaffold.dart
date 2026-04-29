@@ -3,7 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:flutter/services.dart';
-import 'package:sirat_e_mustaqeem/src/core/util/constants.dart';
+import '../../../core/util/constants.dart';
 
 import '../../../core/util/bloc/juz/juz_bloc.dart';
 import '../../../core/util/bloc/surah/surah_bloc.dart';
