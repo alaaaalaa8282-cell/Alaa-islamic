@@ -2,9 +2,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart' show Theme;
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:sirat_e_mustaqeem/src/features/home/widget/home_sliver_appbar.dart';
-import 'package:sirat_e_mustaqeem/src/features/home/widget/home_sliver_list.dart';
-
+import '../widget/home_sliver_appbar.dart';
+import '../widget/home_sliver_list.dart';
 import '../bloc/appbar_bloc/appbar_bloc.dart';
 
 class HomeScreen extends StatelessWidget {
