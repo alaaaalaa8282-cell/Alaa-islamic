@@ -7,7 +7,7 @@ plugins {
 android {
     namespace "com.aboalaa.islamic.muhammad"
     compileSdk 35
-    ndkVersion "26.1.10909125"
+    path_provider_foundation: 2.4.0
 
     compileOptions {
     sourceCompatibility JavaVersion.VERSION_1_8
