@@ -5,7 +5,7 @@ abstract class AngleEvent extends Equatable {
 }
 
 class SetMagnetometerValue extends AngleEvent {
-  final List<MagnetometerEvent> events;
+  final List<double> events;
   const SetMagnetometerValue(this.events);
   @override
   List<Object> get props => [events];
@@ -13,5 +13,5 @@ class SetMagnetometerValue extends AngleEvent {
 
 class NotifyFailure extends AngleEvent {
   @override
-  List<Object> get props => [events];
+  List<Object> get props => [];
 }
