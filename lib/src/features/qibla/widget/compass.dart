@@ -1,13 +1,11 @@
-// ignore_for_file: unnecessary_type_check
-
 import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_compass/flutter_compass.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:lottie/lottie.dart';
-import 'package:motion_sensors/motion_sensors.dart';
 
 import '../blocs/angle_bloc/angle_bloc.dart';
 import '../controller/qibla_controller.dart';
@@ -20,25 +18,19 @@ class Compass extends StatefulWidget {
 }
 
 class _CompassState extends State<Compass> {
-  StreamSubscription<MagnetometerEvent>? _streamSubscription;
+  StreamSubscription<CompassEvent>? _streamSubscription;
 
   @override
   void initState() {
-    motionSensors.magnetometerUpdateInterval =
-        Duration.microsecondsPerSecond ~/ 60;
     getMagnetometerAvailability().then((isSensorAvailable) {
       if (isSensorAvailable)
-        _streamSubscription =
-            motionSensors.magnetometer.listen((MagnetometerEvent event) {
+        _streamSubscription = FlutterCompass.events!.listen((CompassEvent event) {
           updateEvent(event, context);
         });
       else {
-        BlocProvider.of<AngleBloc>(context).add(
-          NotifyFailure(),
-        );
+        BlocProvider.of<AngleBloc>(context).add(NotifyFailure());
       }
     });
-
     super.initState();
   }
 
@@ -73,16 +65,12 @@ class _CompassState extends State<Compass> {
                           angle: state.qiblaDirection,
                           child: Column(
                             children: [
-                              SizedBox(
-                                height: 0.0625.sh,
-                              ),
+                              SizedBox(height: 0.0625.sh),
                               SvgPicture.asset(
                                 'assets/images/qiblat_icon/svg/kiblat_needle.svg',
                                 height: 0.25.sh,
                               ),
-                              SizedBox(
-                                height: 0.1875.sh,
-                              )
+                              SizedBox(height: 0.1875.sh),
                             ],
                           ),
                         ),
