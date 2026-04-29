@@ -40,9 +40,9 @@ void main() async {
   await NotificationService().init();
 
   // تخزين Hydrated Bloc
+HydratedBloc.storage = await HydratedStorage.build(
   storageDirectory: await getApplicationDocumentsDirectory(),
-        (await getApplicationDocumentsDirectory()).path),
-  );
+);
 
   runApp(const MyApp());
 }
