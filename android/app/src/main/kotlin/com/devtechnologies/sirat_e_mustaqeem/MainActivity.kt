@@ -1,4 +1,4 @@
-package com.devtechnologies.siratemustaqeem
+package="com.aboalaa.islamic.muhammad"
 
 import io.flutter.embedding.android.FlutterActivity
 
