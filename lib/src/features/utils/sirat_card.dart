@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import '../../../core/util/constants.dart';
+import '../../core/util/constants.dart';
 
 class SiratCard extends StatelessWidget {
   const SiratCard({required this.child, this.padding, this.margin});
