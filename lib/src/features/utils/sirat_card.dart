@@ -15,7 +15,7 @@ class SiratCard extends StatelessWidget {
 
     return Container(
       width: double.infinity,
-      margin: margin ?? kPagePadding,
+      margin: margin ?? EdgeInsets.symmetric(horizontal: 12.w),
       padding: padding ?? EdgeInsets.all(16.w),
       decoration: BoxDecoration(
         // color: isDark ? Colors.amber : Colors.white,
