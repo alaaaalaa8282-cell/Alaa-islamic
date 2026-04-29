@@ -31,7 +31,7 @@ dependencies:
   muslim_data_flutter: ^1.5.0
   path_provider: ^2.0.2
   permission_handler: ^12.0.1
-  qcf_quran: 0.0.5
+  qcf_quran: 0.0.2
   quran: ^1.3.2
   rxdart: ^0.28.0
   share_plus: ^12.0.1
