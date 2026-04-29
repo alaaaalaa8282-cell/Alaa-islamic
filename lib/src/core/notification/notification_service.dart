@@ -82,13 +82,15 @@ class NotificationService {
       iOS: iosDetails,
     );
 
-await flutterLocalNotificationsPlugin.zonedSchedule(
+     await flutterLocalNotificationsPlugin.zonedSchedule(
       id,
       title,
       body,
       tz.TZDateTime.now(tz.local).add(duration),
       platformDetails,
       androidScheduleMode: AndroidScheduleMode.exactAllowWhileIdle,
+      uiLocalNotificationDateInterpretation:
+          UILocalNotificationDateInterpretation.absoluteTime,
       matchDateTimeComponents: DateTimeComponents.time,
       payload: '',
     );
