@@ -34,7 +34,7 @@ dependencies:
   qcf_quran: 0.0.5
   quran: ^1.3.2
   rxdart: ^0.27.7
-  share_plus: ^12.0.1
+  share_plus: ^10.0.0
   shared_preferences: ^2.0.6
   sqflite: ^2.0.0+3
   url_launcher: ^6.0.9
