@@ -48,9 +48,13 @@ jobs:
         env:
           GRADLE_OPTS: "-Xmx4g -Dorg.gradle.daemon=false"
 
-      - name: Upload APK
-        uses: actions/upload-artifact@v4
+      - name: Create Release
+        uses: softprops/action-gh-release@v1
         with:
-          name: app-release
-          path: build/app/outputs/flutter-apk/app-release.apk
-          retention-days: 30
+          tag_name: "build-${{ github.run_number }}"
+          name: "إصدار ${{ github.run_number }}"
+          files: build/app/outputs/flutter-apk/app-release.apk
+          draft: false
+          prerelease: false
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
