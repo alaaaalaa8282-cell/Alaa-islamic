@@ -40,18 +40,17 @@ jobs:
 
       - name: Build Release APK
         run: |
-          ./gradlew assembleRelease \
-            -Pandroid.injected.signing.store.file=${{ github.workspace }}/alaa-islamic.jks \
-            -Pandroid.injected.signing.store.password=alaaislamic123 \
-            -Pandroid.injected.signing.key.alias=alaa-islamic \
-            -Pandroid.injected.signing.key.password=alaaislamic123
+          flutter build apk --release \
+            --dart-define=STORE_FILE=${{ github.workspace }}/alaa-islamic.jks \
+            --dart-define=STORE_PASSWORD=alaaislamic123 \
+            --dart-define=KEY_ALIAS=alaa-islamic \
+            --dart-define=KEY_PASSWORD=alaaislamic123
         env:
           GRADLE_OPTS: "-Xmx4g -Dorg.gradle.daemon=false"
-        working-directory: android
 
       - name: Upload APK
         uses: actions/upload-artifact@v4
         with:
           name: app-release
-          path: build/app/outputs/apk/release/*.apk
+          path: build/app/outputs/flutter-apk/app-release.apk
           retention-days: 30
