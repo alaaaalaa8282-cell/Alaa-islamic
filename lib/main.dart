@@ -74,16 +74,21 @@ class MyApp extends StatelessWidget {
       child: ScreenUtilInit(
         designSize: const Size(414, 896),
         builder: (context, child) {
-          return BlocBuilder<ThemeBloc, ThemeState>(
-            builder: (context, state) {
-              return MaterialApp(
-                title: 'محمد عبد العظيم الطويل الإسلامي',
-                debugShowCheckedModeBanner: false,
-                theme: state.currentTheme,
-                navigatorKey: appNavigatorKey,
-                home: const SplashScreen(),
-                onGenerateRoute: RouteGenerator.generateRoute,
-              );
+          return MaterialApp(
+  title: 'محمد عبد العظيم الإسلامي',
+  debugShowCheckedModeBanner: false,
+  theme: state.currentTheme,
+  navigatorKey: appNavigatorKey,
+  home: const SplashScreen(),
+  onGenerateRoute: RouteGenerator.generateRoute,
+  locale: const Locale('ar'),
+  supportedLocales: const [Locale('ar')],
+  localizationsDelegates: const [
+    GlobalMaterialLocalizations.delegate,
+    GlobalWidgetsLocalizations.delegate,
+    GlobalCupertinoLocalizations.delegate,
+             ],
+             );
             },
           );
         },
